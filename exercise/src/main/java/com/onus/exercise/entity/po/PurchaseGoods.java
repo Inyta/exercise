@@ -30,10 +30,4 @@ public class PurchaseGoods {
     private String unit;
 
     private Date shelfDate;
-
-    private Integer plannedMeals;
-
-    private Date plannedFinishDate;
-
-    private Integer plannedUserQuantity;
 }
