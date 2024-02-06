@@ -2,6 +2,8 @@ server:
   port: 8080
 spring:
   datasource:
+    hikari:
+      max-lifetime: 12000
     url: jdbc:mysql://139.224.51.34:3406/exercise?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai
     username: root
     password: 1hblsqt!
