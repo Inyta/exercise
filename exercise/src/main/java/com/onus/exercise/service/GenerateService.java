@@ -74,23 +74,25 @@ public class GenerateService {
     return bytes;
   }
 
-  public static void generate(Map<String, String> map) {
+  public static String generate(Map<String, String> map) {
     String carCode = map.get("$CarCode");
     //生成二维码
     byte[] bytes = generateQRCodeAsBase64(carCode);
     Date date = new Date();
-    boolean insertImg = getKeyWordsAndInsertImg(date, "D://模板.pdf", bytes, "二维码", 80f, 80f, 0f,
+    boolean insertImg = getKeyWordsAndInsertImg(date, "D://jing/模板.pdf", bytes, "二维码", 80f, 80f, 0f,
         0f);
     if (insertImg) {
       replaceText(map, date);
     }
+    String sourcePath = "D://jing/模板_" + date.getTime() + ".pdf";
+    return sourcePath;
   }
 
   public static String replaceText(Map<String, String> map, Date date) {
     // 创建PdfDocument类的实例
     PdfDocument pdf = new PdfDocument();
     // 加载PDF文件
-    String sourcePath = "D://模板_" + date.getTime() + ".pdf";
+    String sourcePath = "D://jing/模板_" + date.getTime() + ".pdf";
     pdf.loadFromFile(sourcePath);
     // 遍历PDF文件的页面
     for (PdfPageBase page : (Iterable<? extends PdfPageBase>) pdf.getPages()) {
