@@ -27,7 +27,7 @@ public class Test4 {
 
   public static void main(String[] args) throws Exception {
     //通过指定pdf文件名，指定关键字，和指定的pdf文件的待处理页数做参数
-    getKeyWordsAndInsertImg("D:\\模板2.pdf", "D:\\1.png", "二维码", 80f, 80f, 0f, 0f);
+    getKeyWordsAndInsertImg("D:\\模板.pdf", "D:\\1.png", "二维码", 80f, 80f, 0f, 0f);
 
   }
 
@@ -58,7 +58,6 @@ public class Test4 {
       String KEY_WORD, float width, float height, float x, float y) {
     try {
       //得到需要插入的图片
-
       String imagePath1 = "D://1.png"; // 替换为你的图片路径
       String base64String = encodeImageToBase64(imagePath1);
       //核心思路为对PdfDocument对象采用某种Strategy，这里使用RegexBasedLocationExtractionStrategy
@@ -110,16 +109,16 @@ public class Test4 {
         logger.error("图片插入失败！");
         return false;
       }
-
-      File oldfile = new File(sourcePath);
-      oldfile.delete();
-      boolean is = new File(tempPath).renameTo(new File(sourcePath));
-      if (is) {
-        logger.info("文件重命名成功！");
-      } else {
-        logger.error("文件重命名失败！");
-        return false;
-      }
+//
+//      File oldfile = new File(sourcePath);
+//      oldfile.delete();
+//      boolean is = new File(tempPath).renameTo(new File(sourcePath));
+//      if (is) {
+//        logger.info("文件重命名成功！");
+//      } else {
+//        logger.error("文件重命名失败！");
+//        return false;
+//      }
 
 
     } catch (Exception e) {
